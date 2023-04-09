@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "G9MqwGEvci0dhIqdeOsDx8v4SUrPKjx9fthM4zCKVuy1eQPIDsIxwVPHkkb7NsusS9Qx16lYwVYByOuA8jG+MQ==",
+  "success": true,
+  "projectFilePath": "/home/ricardosobral/Data_Jiban/FoundryVTT-Code/foundryvtt-webapi/FoundryWebAPI/FoundryWebAPI.csproj",
+  "expectedPackageFiles": [
+    "/home/ricardosobral/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/ricardosobral/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/ricardosobral/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/home/ricardosobral/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/home/ricardosobral/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/home/ricardosobral/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
