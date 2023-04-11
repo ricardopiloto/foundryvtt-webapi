@@ -2,7 +2,7 @@
 A REST API for Foundry VTT based on .netcore and docker.
 
 # What it does?
-This API is *read* only. Original idea here was to have means of reading the database files without the need to open the application, either using a phone app or a resposive website.
+This API is **read** only. Original idea here was to have means of reading the database files without the need to open the application, either using a phone app or a responsive website.
 
 # Important note
 I am no developer, I'm learning as I go. Any help is welcome.

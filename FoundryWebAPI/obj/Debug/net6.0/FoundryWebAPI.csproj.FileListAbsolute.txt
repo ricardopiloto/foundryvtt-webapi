@@ -25,3 +25,4 @@
 /home/ricardosobral/Data_Jiban/FoundryVTT-Code/foundryvtt-webapi/FoundryWebAPI/obj/Debug/net6.0/ref/FoundryWebAPI.dll
 /home/ricardosobral/Data_Jiban/FoundryVTT-Code/foundryvtt-webapi/FoundryWebAPI/obj/Debug/net6.0/FoundryWebAPI.pdb
 /home/ricardosobral/Data_Jiban/FoundryVTT-Code/foundryvtt-webapi/FoundryWebAPI/obj/Debug/net6.0/FoundryWebAPI.genruntimeconfig.cache
+/home/ricardosobral/Data_Jiban/FoundryVTT-Code/foundryvtt-webapi/FoundryWebAPI/bin/Debug/net6.0/Newtonsoft.Json.dll

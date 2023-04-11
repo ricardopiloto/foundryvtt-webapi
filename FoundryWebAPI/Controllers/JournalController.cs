@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
+using FoundryWebAPI.Models;
+using FoundryWebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace FoundryWebAPI.Controllers
 {
@@ -10,13 +15,12 @@ namespace FoundryWebAPI.Controllers
     [Route("api/[controller]")]
     public class JournalController : ControllerBase
     {
+        // public List<Journals> Journal = new List<Journals>() { };
         public JournalController() { }
         [HttpGet]
         public IActionResult Get()
         {
-            string text = System.IO.File.ReadAllText(@"/home/ricardosobral/Downloads/journal.db");
-            // var person = System.Text.Json.JsonSerializer.Deserialize<Person>(text);
-            return Ok(text);
+            return Ok(ReadJournalDb.JournalFile());
         }
     }
 }

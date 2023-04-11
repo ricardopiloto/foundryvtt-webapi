@@ -6,20 +6,21 @@ namespace FoundryWebAPI.Models
     public class Journals
     {
         public Journals() { }
-        public Journals(string name, string id, string folder, string owner)
+        public Journals(string name, string id, string pages, string folder, string flags)
         {
             this.Name = name;
-            this.Id = id;
+            this._Id = id;
             this.Folder = folder;
-            this.Owner = owner;
+            this.Flags = flags;
 
         }
-        public string Name { get; set; } = string.Empty;
-        public string Folder { get; set; } = string.Empty;
-        public string Id { get; set; } = string.Empty;
-        public string Owner { get; set; } = string.Empty;
+        public string? Name { get; }
+        public string? Folder { get; }
+        public string? Sort { get; }
+        public string? _Id { get; }
+        public string? Flags { get; }
 
-        public Journals? Journal { get; set; }
-        public IEnumerable<ActorsJournals>? ActorJournal { get; set; }
+        public Journals? Journal { get; }
+        public IEnumerable<ActorsJournals>? ActorJournal { get; }
     }
 }
