@@ -1,26 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace FoundryWebAPI.Models
 {
     public class Journals
     {
         public Journals() { }
-        public Journals(string name, string id, string pages, string folder, string flags)
+
+        public Journals(string folder, string _Id, string name)
         {
-            this.Name = name;
-            this._Id = id;
             this.Folder = folder;
-            this.Flags = flags;
-
+            // this.Sort = sort;
+            // this.Stats = stats;
+            this._Id = _Id;
+            this.Name = name;
         }
-        public string? Name { get; }
-        public string? Folder { get; }
-        public string? Sort { get; }
-        public string? _Id { get; }
-        public string? Flags { get; }
 
-        public Journals? Journal { get; }
-        public IEnumerable<ActorsJournals>? ActorJournal { get; }
+        [JsonProperty("name")]
+        public string Name { get; set;}
+
+        [JsonProperty("folder")]
+        public string? Folder { get; set;}
+
+        [JsonProperty("_id")]
+        public string? _Id { get; set;}
+
+        public Journals? Journal { get; set;}
+        public IEnumerable<ActorsJournals>? ActorJournal { get; set;}
     }
 }
