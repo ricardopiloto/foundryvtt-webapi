@@ -1,5 +1,7 @@
 using FoundryWebAPI.Models;
+using FoundryWebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace FoundryWebAPI.Controllers
 {
@@ -7,44 +9,24 @@ namespace FoundryWebAPI.Controllers
     [Route("api/[controller]")]
     public class JournalController : ControllerBase
     {
-        public List<Journals> Journal = new List<Journals>() 
-        {
-            new Journals()
-            {
-                Name = "Stair",
-                _Id = "ikuhasd",
-                Folder = "Test"
-            },
-            new Journals()
-            {
-                Name = "Fast",
-                _Id = "oiuqywoe",
-                Folder = "Test"
-            },
-            new Journals()
-            {
-                Name = "Taera",
-                _Id = "zvzbxcvz",
-                Folder = "Test"
-            }
-            
-        };
-        public JournalController() { }
         
+        public List<Journals>? Journal => JsonConvert.DeserializeObject<List<Journals>>(ReadJournalDb.JournalFile("forgotten-realms"));
+       
+        public JournalController() { }
+
         [HttpGet]
         public IActionResult Get()
         {
             // return Ok(ReadJournalDb.JournalFile());
             return Ok(Journal);
         }
-        
         // /api/journal/aksjdhaksjhd (id do Journal)
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
-            var byJournalId = Journal.FirstOrDefault(j => j._Id == id);
-            if(byJournalId == null) return BadRequest("Journal not found");
-            
+            var byJournalId = Journal.FirstOrDefault(j => j.Id == id);
+            if (byJournalId == null) return BadRequest("Journal not found");
+
             return Ok(byJournalId);
         }
 
@@ -53,8 +35,8 @@ namespace FoundryWebAPI.Controllers
         public IActionResult GetByName(string name)
         {
             var byJournalName = Journal.FirstOrDefault(j => j.Name.Contains(name));
-            if(byJournalName == null) return BadRequest("Journal not found");
-            
+            if (byJournalName == null) return BadRequest("Journal not found");
+
             return Ok(byJournalName);
         }
     }
