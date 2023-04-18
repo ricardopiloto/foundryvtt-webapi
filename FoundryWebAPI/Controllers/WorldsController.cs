@@ -1,5 +1,4 @@
 using FoundryWebAPI.Models;
-using FoundryWebAPI.Repositories;
 using FoundryWebAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +21,7 @@ namespace FoundryWebAPI.Controllers
             return Ok(World);
         }
         
-        // /api/worlds/byName?name=nameofworld
+        // /api/worlds/byName?name=nameo
         [HttpGet("ByName")]
         [Authorize]
         public IActionResult GetByName(string name)

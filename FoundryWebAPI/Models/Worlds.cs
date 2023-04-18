@@ -11,7 +11,7 @@ namespace FoundryWebAPI.Models
         public Worlds () {}
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public Worlds? World { get; set; }
     }

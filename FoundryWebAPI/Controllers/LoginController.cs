@@ -14,7 +14,7 @@ namespace FoundryWebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class Login : Controller
+    public class LoginController : Controller
     {
         [HttpPost]
         [AllowAnonymous]        
