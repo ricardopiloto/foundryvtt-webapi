@@ -7,7 +7,7 @@ namespace FoundryWebAPI.Services
     {
         public static string JournalFile(string world)
         {
-            // string filepath = "/home/ubuntu/.local/share/FoundryVTT/Data/worlds/" + world + "/data";
+            // string filepath = "/home/ubuntu/.local/share/FoundryVTT/Data/worlds/" + world + "/data/journal.db";
             // test with localfile
             string filepath = "/home/ricardosobral/Downloads/journal.db";
 

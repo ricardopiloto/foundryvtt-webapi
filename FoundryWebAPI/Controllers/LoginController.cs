@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using FoundryWebAPI.Models;
 using FoundryWebAPI.Repositories;
 using FoundryWebAPI.Services;
@@ -17,7 +11,7 @@ namespace FoundryWebAPI.Controllers
     public class LoginController : Controller
     {
         [HttpPost]
-        [AllowAnonymous]        
+        [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Authenticate([FromBody]User model) 
         {
             var user = UserRepository.Get(model.Username, model.Password);

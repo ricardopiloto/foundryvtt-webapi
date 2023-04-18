@@ -10,7 +10,7 @@ namespace FoundryWebAPI.Controllers
     [Route("api/[controller]")]
     public class WorldsController : ControllerBase
     {
-        public List<Worlds>? World => JsonConvert.DeserializeObject<List<Worlds>>(ReadWorlds.GetWorlds());
+        public List<Worlds>? World => JsonConvert.DeserializeObject<List<Worlds>>(ReadWorldsDb.GetWorlds());
         public WorldsController() { }
 
         // /api/worlds

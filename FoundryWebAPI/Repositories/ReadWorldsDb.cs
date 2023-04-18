@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace FoundryWebAPI.Services
 {
-    public class ReadWorlds
+    public class ReadWorldsDb
     {
         public static string GetWorlds(){
             // string path = "/home/ubuntu/.local/share/FoundryVTT/Data/worlds/";
