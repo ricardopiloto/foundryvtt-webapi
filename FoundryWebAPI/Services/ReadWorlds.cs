@@ -8,9 +8,9 @@ namespace FoundryWebAPI.Services
     public class ReadWorlds
     {
         public static string GetWorlds(){
-            string path = "/home/ubuntu/.local/share/FoundryVTT/Data/worlds/";
+            // string path = "/home/ubuntu/.local/share/FoundryVTT/Data/worlds/";
             var list = new List<Worlds>();
-            // string path = "/home/ricardosobral/Documents/";
+            string path = "/home/ricardosobral/Documents/";
             
             string[] directories = Directory.GetDirectories(path);
             foreach(string foldername in directories)

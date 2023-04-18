@@ -1,5 +1,7 @@
 using FoundryWebAPI.Models;
+using FoundryWebAPI.Repositories;
 using FoundryWebAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -15,6 +17,7 @@ namespace FoundryWebAPI.Controllers
         public JournalController() { }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
             // return Ok(ReadJournalDb.JournalFile());
@@ -22,6 +25,7 @@ namespace FoundryWebAPI.Controllers
         }
         // /api/journal/aksjdhaksjhd (id do Journal)
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult GetById(string id)
         {
             var byJournalId = Journal.FirstOrDefault(j => j.Id == id);
@@ -32,6 +36,7 @@ namespace FoundryWebAPI.Controllers
 
         // /api/journal/byName?name=nomedojournal
         [HttpGet("ByName")]
+        [Authorize]
         public IActionResult GetByName(string name)
         {
             var byJournalName = Journal.FirstOrDefault(j => j.Name.Contains(name));
