@@ -62,7 +62,6 @@ namespace FoundryWebAPI.V1.Controllers
             return Ok(byActorName);
         }
 
-        // /api/journal/aksjdhaksjhd (id do Journal)
         /// <summary>
         /// Method to get actors by type (chacters, monsters, npc, etc) from db file
         ///</summary>
@@ -77,16 +76,18 @@ namespace FoundryWebAPI.V1.Controllers
             return Ok(byActorType);
         }
 
-        // /api/journal/aksjdhaksjhd (id do Journal)
         /// <summary>
-        /// Method to get actors by Class if type is characters from db file
+        /// Method to get actors by Class IF type is characters from db file
         ///</summary>
         /// <returns></returns>
-        [HttpGet("{world}/class/{class}")]
+        [HttpGet("{world}/class/{cls}")]
         [Authorize]
         public IActionResult GetByClass(string world, string cls)
         {
-            var byActorType = _repo.Actor(world).FindAll(a => a.Type.Contains(cls));
+            // Necessary to adjust, cannot find property Items.Type for some reason... need to check the model
+            var byActorType = _repo.Actor(world).FindAll(a => a.Type.Contains("character") 
+                                                        && a.Items.Any(i => i.Name.ToLower() == cls.ToLower())
+                                                        );
             if (byActorType == null) return BadRequest("Actor not found.");
 
             return Ok(byActorType);
