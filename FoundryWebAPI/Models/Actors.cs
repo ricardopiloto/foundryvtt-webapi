@@ -7,102 +7,102 @@ namespace FoundryWebAPI.Models
     public class Actors
     {
         public Actors() { }
-        
+
         [JsonProperty("_id")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         [JsonProperty("img")]
-        public string Img { get; set; }
+        public string? Img { get; set; }
 
         [JsonProperty("items")]
-        public Item[] Items { get; set; }
+        public Item[]? Items { get; set; }
 
         [JsonProperty("effects")]
-        public object[] Effects { get; set; }
+        public object[]? Effects { get; set; }
 
         [JsonProperty("folder")]
-        public string Folder { get; set; }
+        public string? Folder { get; set; }
 
         [JsonProperty("sort")]
         public long? Sort { get; set; }
 
         [JsonProperty("flags")]
-        public ActorFlags Flags { get; set; }
+        public ActorFlags? Flags { get; set; }
 
         [JsonProperty("system")]
-        public ActorSystem System { get; set; }
+        public ActorSystem? System { get; set; }
 
         [JsonProperty("ownership")]
-        public Dictionary<string, long> Ownership { get; set; }
+        public Dictionary<string, long>? Ownership { get; set; }
 
         [JsonProperty("prototypeToken")]
-        public PrototypeToken PrototypeToken { get; set; }
+        public PrototypeToken? PrototypeToken { get; set; }
 
         [JsonProperty("_stats")]
-        public Stats Stats { get; set; }
+        public Stats? Stats { get; set; }
     }
 
     public partial class ActorFlags
     {
         [JsonProperty("core")]
-        public Core Core { get; set; }
+        public Core? Core { get; set; }
 
         [JsonProperty("scene-packer")]
-        public ScenePacker ScenePacker { get; set; }
+        public ScenePacker? ScenePacker { get; set; }
     }
 
     public partial class Core
     {
         [JsonProperty("sourceId")]
-        public string SourceId { get; set; }
+        public string? SourceId { get; set; }
     }
 
     public partial class ScenePacker
     {
         [JsonProperty("hash")]
-        public string Hash { get; set; }
+        public string? Hash { get; set; }
     }
 
     public partial class Item
     {
         [JsonProperty("_id")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         [JsonProperty("img")]
-        public string Img { get; set; }
+        public string? Img { get; set; }
 
         [JsonProperty("effects")]
-        public object[] Effects { get; set; }
+        public object[]? Effects { get; set; }
 
         [JsonProperty("folder")]
-        public object Folder { get; set; }
+        public object? Folder { get; set; }
 
         [JsonProperty("sort")]
         public long? Sort { get; set; }
 
         [JsonProperty("flags")]
-        public ClassClass Flags { get; set; }
+        public ClassClass? Flags { get; set; }
 
         [JsonProperty("system")]
-        public ItemSystem System { get; set; }
+        public ItemSystem? System { get; set; }
 
         [JsonProperty("ownership")]
-        public Ownership Ownership { get; set; }
+        public Ownership? Ownership { get; set; }
 
         [JsonProperty("_stats")]
-        public Stats Stats { get; set; }
+        public Stats? Stats { get; set; }
     }
 
     public partial class ClassClass
@@ -118,85 +118,85 @@ namespace FoundryWebAPI.Models
     public partial class Stats
     {
         [JsonProperty("systemId")]
-        public string SystemId { get; set; }
+        public string? SystemId { get; set; }
 
         [JsonProperty("systemVersion")]
-        public string SystemVersion { get; set; }
+        public string? SystemVersion { get; set; }
 
         [JsonProperty("coreVersion")]
-        public string CoreVersion { get; set; }
+        public string? CoreVersion { get; set; }
 
         [JsonProperty("createdTime")]
-        public object CreatedTime { get; set; }
+        public object? CreatedTime { get; set; }
 
         [JsonProperty("modifiedTime")]
         public long? ModifiedTime { get; set; }
 
         [JsonProperty("lastModifiedBy")]
-        public string LastModifiedBy { get; set; }
+        public string? LastModifiedBy { get; set; }
     }
 
     public partial class ItemSystem
     {
         [JsonProperty("description")]
-        public Description Description { get; set; }
+        public Description? Description { get; set; }
 
         [JsonProperty("source")]
-        public string Source { get; set; }
+        public string? Source { get; set; }
 
         [JsonProperty("activation")]
-        public Activation Activation { get; set; }
+        public Activation? Activation { get; set; }
 
         [JsonProperty("duration")]
-        public Duration Duration { get; set; }
+        public Duration? Duration { get; set; }
 
         [JsonProperty("cover")]
-        public object Cover { get; set; }
+        public object? Cover { get; set; }
 
         [JsonProperty("target")]
-        public Target Target { get; set; }
+        public Target? Target { get; set; }
 
         [JsonProperty("range")]
-        public Range Range { get; set; }
+        public Range? Range { get; set; }
 
         [JsonProperty("uses")]
         public Uses? Uses { get; set; }
 
         [JsonProperty("consume")]
-        public Consume Consume { get; set; }
+        public Consume? Consume { get; set; }
 
         [JsonProperty("ability")]
-        public string Ability { get; set; }
+        public string? Ability { get; set; }
 
         [JsonProperty("actionType")]
-        public string ActionType { get; set; }
+        public string? ActionType { get; set; }
 
         [JsonProperty("attackBonus")]
-        public long? AttackBonus { get; set; }
+        public string? AttackBonus { get; set; }
 
         [JsonProperty("chatFlavor")]
-        public string ChatFlavor { get; set; }
+        public string? ChatFlavor { get; set; }
 
         [JsonProperty("critical")]
-        public Critical Critical { get; set; }
+        public Critical? Critical { get; set; }
 
         [JsonProperty("damage")]
-        public Damage Damage { get; set; }
+        public Damage? Damage { get; set; }
 
         [JsonProperty("formula")]
-        public string Formula { get; set; }
+        public string? Formula { get; set; }
 
         [JsonProperty("save")]
-        public Save Save { get; set; }
+        public Save? Save { get; set; }
 
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public SystemType Type { get; set; }
+        public SystemType? Type { get; set; }
 
         [JsonProperty("requirements", NullValueHandling = NullValueHandling.Ignore)]
-        public string Requirements { get; set; }
+        public string? Requirements { get; set; }
 
         [JsonProperty("recharge", NullValueHandling = NullValueHandling.Ignore)]
-        public Recharge Recharge { get; set; }
+        public Recharge? Recharge { get; set; }
 
         [JsonProperty("attunement")]
         public long? Attunement { get; set; }
@@ -208,46 +208,49 @@ namespace FoundryWebAPI.Models
         public long? Weight { get; set; }
 
         [JsonProperty("price")]
-        public object Price { get; set; }
+        public object? Price { get; set; }
 
         [JsonProperty("equipped", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Equipped { get; set; }
 
         [JsonProperty("rarity", NullValueHandling = NullValueHandling.Ignore)]
-        public string Rarity { get; set; }
+        public string? Rarity { get; set; }
 
         [JsonProperty("identified", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Identified { get; set; }
 
         [JsonProperty("armor", NullValueHandling = NullValueHandling.Ignore)]
-        public Xp Armor { get; set; }
+        public Xp? Armor { get; set; }
 
         [JsonProperty("hp", NullValueHandling = NullValueHandling.Ignore)]
-        public SystemHp Hp { get; set; }
+        public SystemHp? Hp { get; set; }
 
         [JsonProperty("weaponType", NullValueHandling = NullValueHandling.Ignore)]
-        public string WeaponType { get; set; }
+        public string? WeaponType { get; set; }
 
         [JsonProperty("baseItem", NullValueHandling = NullValueHandling.Ignore)]
-        public string BaseItem { get; set; }
+        public string? BaseItem { get; set; }
 
         [JsonProperty("properties", NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, bool> Properties { get; set; }
+        public PurpleFlags Properties { get; set; }
 
         [JsonProperty("proficient", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Proficient { get; set; }
+    }
+    public partial class PurpleFlags
+    {
     }
 
     public partial class Activation
     {
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         [JsonProperty("cost")]
         public long? Cost { get; set; }
 
         [JsonProperty("condition")]
-        public string Condition { get; set; }
+        public string? Condition { get; set; }
     }
 
     public partial class Xp
@@ -259,22 +262,22 @@ namespace FoundryWebAPI.Models
     public partial class Consume
     {
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         [JsonProperty("target")]
-        public string Target { get; set; }
+        public string? Target { get; set; }
 
         [JsonProperty("amount")]
-        public object Amount { get; set; }
+        public object? Amount { get; set; }
     }
 
     public partial class Critical
     {
         [JsonProperty("threshold")]
-        public object Threshold { get; set; }
+        public object? Threshold { get; set; }
 
         [JsonProperty("damage")]
-        public string Damage { get; set; }
+        public string? Damage { get; set; }
     }
 
     public partial class Damage
@@ -283,31 +286,31 @@ namespace FoundryWebAPI.Models
         public string[][] Parts { get; set; }
 
         [JsonProperty("versatile")]
-        public string Versatile { get; set; }
+        public string? Versatile { get; set; }
 
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
-        public string Value { get; set; }
+        public string? Value { get; set; }
     }
 
     public partial class Description
     {
         [JsonProperty("value")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         [JsonProperty("chat")]
-        public string Chat { get; set; }
+        public string? Chat { get; set; }
 
         [JsonProperty("unidentified")]
-        public string Unidentified { get; set; }
+        public string? Unidentified { get; set; }
     }
 
     public partial class Duration
     {
         [JsonProperty("value")]
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
         [JsonProperty("units")]
-        public string Units { get; set; }
+        public string? Units { get; set; }
     }
 
     public partial class SystemHp
@@ -319,10 +322,10 @@ namespace FoundryWebAPI.Models
         public long? Max { get; set; }
 
         [JsonProperty("dt")]
-        public object Dt { get; set; }
+        public object? Dt { get; set; }
 
         [JsonProperty("conditions")]
-        public string Conditions { get; set; }
+        public string? Conditions { get; set; }
     }
 
     public partial class Range
@@ -331,16 +334,16 @@ namespace FoundryWebAPI.Models
         public long? Value { get; set; }
 
         [JsonProperty("long")]
-        public object Long { get; set; }
+        public object? Long { get; set; }
 
         [JsonProperty("units")]
-        public string Units { get; set; }
+        public string? Units { get; set; }
     }
 
     public partial class Recharge
     {
         [JsonProperty("value")]
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
         [JsonProperty("charged")]
         public bool? Charged { get; set; }
@@ -349,40 +352,40 @@ namespace FoundryWebAPI.Models
     public partial class Save
     {
         [JsonProperty("ability")]
-        public string Ability { get; set; }
+        public string? Ability { get; set; }
 
         [JsonProperty("dc")]
-        public object Dc { get; set; }
+        public object? Dc { get; set; }
 
         [JsonProperty("scaling")]
-        public string Scaling { get; set; }
+        public string? Scaling { get; set; }
 
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
-        public string Value { get; set; }
+        public string? Value { get; set; }
     }
 
     public partial class Target
     {
         [JsonProperty("value")]
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
         [JsonProperty("width")]
-        public object Width { get; set; }
+        public object? Width { get; set; }
 
         [JsonProperty("units")]
-        public string Units { get; set; }
+        public string? Units { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
     }
 
     public partial class SystemType
     {
         [JsonProperty("value")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         [JsonProperty("subtype")]
-        public string Subtype { get; set; }
+        public string? Subtype { get; set; }
     }
 
     public partial class Uses
@@ -406,13 +409,13 @@ namespace FoundryWebAPI.Models
     public partial class PrototypeToken
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("displayName")]
         public long? DisplayName { get; set; }
 
         [JsonProperty("actorLink")]
-        public bool ActorLink { get; set; }
+        public bool? ActorLink { get; set; }
 
         [JsonProperty("width")]
         public long? Width { get; set; }
@@ -421,7 +424,7 @@ namespace FoundryWebAPI.Models
         public long? Height { get; set; }
 
         [JsonProperty("lockRotation")]
-        public bool LockRotation { get; set; }
+        public bool? LockRotation { get; set; }
 
         [JsonProperty("rotation")]
         public long? Rotation { get; set; }
@@ -433,37 +436,37 @@ namespace FoundryWebAPI.Models
         public long? DisplayBars { get; set; }
 
         [JsonProperty("bar1")]
-        public Bar Bar1 { get; set; }
+        public Bar? Bar1 { get; set; }
 
         [JsonProperty("bar2")]
-        public Bar Bar2 { get; set; }
+        public Bar? Bar2 { get; set; }
 
         [JsonProperty("flags")]
-        public ClassClass Flags { get; set; }
+        public ClassClass? Flags { get; set; }
 
         [JsonProperty("randomImg")]
-        public bool RandomImg { get; set; }
+        public bool? RandomImg { get; set; }
 
         [JsonProperty("alpha")]
         public long? Alpha { get; set; }
 
         [JsonProperty("light")]
-        public Light Light { get; set; }
+        public Light? Light { get; set; }
 
         [JsonProperty("texture")]
-        public Texture Texture { get; set; }
+        public Texture? Texture { get; set; }
 
         [JsonProperty("sight")]
-        public Sight Sight { get; set; }
+        public Sight? Sight { get; set; }
 
         [JsonProperty("detectionModes")]
-        public object[] DetectionModes { get; set; }
+        public object[]? DetectionModes { get; set; }
     }
 
     public partial class Bar
     {
         [JsonProperty("attribute")]
-        public string Attribute { get; set; }
+        public string? Attribute { get; set; }
     }
 
     public partial class Light
@@ -484,7 +487,7 @@ namespace FoundryWebAPI.Models
         public long? Dim { get; set; }
 
         [JsonProperty("luminosity")]
-        public double Luminosity { get; set; }
+        public double? Luminosity { get; set; }
 
         [JsonProperty("saturation")]
         public long? Saturation { get; set; }
@@ -496,16 +499,16 @@ namespace FoundryWebAPI.Models
         public long? Shadows { get; set; }
 
         [JsonProperty("animation")]
-        public Animation Animation { get; set; }
+        public Animation? Animation { get; set; }
 
         [JsonProperty("darkness")]
-        public Darkness Darkness { get; set; }
+        public Darkness? Darkness { get; set; }
 
         [JsonProperty("color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         [JsonProperty("attenuation")]
-        public double Attenuation { get; set; }
+        public double? Attenuation { get; set; }
     }
 
     public partial class Animation
@@ -517,10 +520,10 @@ namespace FoundryWebAPI.Models
         public long? Intensity { get; set; }
 
         [JsonProperty("type")]
-        public object Type { get; set; }
+        public object? Type { get; set; }
 
         [JsonProperty("reverse")]
-        public bool Reverse { get; set; }
+        public bool? Reverse { get; set; }
     }
 
     public partial class Darkness
@@ -538,7 +541,7 @@ namespace FoundryWebAPI.Models
         public long? Angle { get; set; }
 
         [JsonProperty("enabled")]
-        public bool Enabled { get; set; }
+        public bool? Enabled { get; set; }
 
         [JsonProperty("range")]
         public long? Range { get; set; }
@@ -547,13 +550,13 @@ namespace FoundryWebAPI.Models
         public long? Brightness { get; set; }
 
         [JsonProperty("visionMode")]
-        public string VisionMode { get; set; }
+        public string? VisionMode { get; set; }
 
         [JsonProperty("color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         [JsonProperty("attenuation")]
-        public double Attenuation { get; set; }
+        public double? Attenuation { get; set; }
 
         [JsonProperty("saturation")]
         public long? Saturation { get; set; }
@@ -565,16 +568,16 @@ namespace FoundryWebAPI.Models
     public partial class Texture
     {
         [JsonProperty("src")]
-        public string Src { get; set; }
+        public string? Src { get; set; }
 
         [JsonProperty("tint")]
-        public object Tint { get; set; }
+        public object? Tint { get; set; }
 
         [JsonProperty("scaleX")]
-        public double ScaleX { get; set; }
+        public double? ScaleX { get; set; }
 
         [JsonProperty("scaleY")]
-        public double ScaleY { get; set; }
+        public double? ScaleY { get; set; }
 
         [JsonProperty("offsetX")]
         public long? OffsetX { get; set; }
@@ -589,52 +592,52 @@ namespace FoundryWebAPI.Models
     public partial class ActorSystem
     {
         [JsonProperty("abilities")]
-        public SystemAbilities Abilities { get; set; }
+        public SystemAbilities? Abilities { get; set; }
 
         [JsonProperty("attributes")]
-        public Attributes Attributes { get; set; }
+        public Attributes? Attributes { get; set; }
 
         [JsonProperty("details")]
-        public Details Details { get; set; }
+        public Details? Details { get; set; }
 
         [JsonProperty("traits")]
-        public Traits Traits { get; set; }
+        public Traits? Traits { get; set; }
 
         [JsonProperty("currency")]
-        public Currency Currency { get; set; }
+        public Currency? Currency { get; set; }
 
         [JsonProperty("skills")]
-        public Dictionary<string, Init> Skills { get; set; }
+        public Dictionary<string, Init>? Skills { get; set; }
 
         [JsonProperty("spells")]
-        public Spells Spells { get; set; }
+        public Spells? Spells { get; set; }
 
         [JsonProperty("bonuses")]
-        public SystemBonuses Bonuses { get; set; }
+        public SystemBonuses? Bonuses { get; set; }
 
         [JsonProperty("resources")]
-        public Resources Resources { get; set; }
+        public Resources? Resources { get; set; }
     }
 
     public partial class SystemAbilities
     {
         [JsonProperty("str")]
-        public Cha Str { get; set; }
+        public Cha? Str { get; set; }
 
         [JsonProperty("dex")]
-        public Cha Dex { get; set; }
+        public Cha? Dex { get; set; }
 
         [JsonProperty("con")]
-        public Cha Con { get; set; }
+        public Cha? Con { get; set; }
 
         [JsonProperty("int")]
-        public Cha Int { get; set; }
+        public Cha? Int { get; set; }
 
         [JsonProperty("wis")]
-        public Cha Wis { get; set; }
+        public Cha? Wis { get; set; }
 
         [JsonProperty("cha")]
-        public Cha Cha { get; set; }
+        public Cha? Cha { get; set; }
     }
 
     public partial class Cha
@@ -646,7 +649,7 @@ namespace FoundryWebAPI.Models
         public long? Proficient { get; set; }
 
         [JsonProperty("bonuses")]
-        public ChaBonuses Bonuses { get; set; }
+        public ChaBonuses? Bonuses { get; set; }
 
         [JsonProperty("min")]
         public long? Min { get; set; }
@@ -673,34 +676,34 @@ namespace FoundryWebAPI.Models
     public partial class ChaBonuses
     {
         [JsonProperty("check")]
-        public string Check { get; set; }
+        public string? Check { get; set; }
 
         [JsonProperty("save")]
-        public string Save { get; set; }
+        public string? Save { get; set; }
     }
 
     public partial class Attributes
     {
         [JsonProperty("ac")]
-        public Ac Ac { get; set; }
+        public Ac? Ac { get; set; }
 
         [JsonProperty("hp")]
-        public AttributesHp Hp { get; set; }
+        public AttributesHp? Hp { get; set; }
 
         [JsonProperty("init")]
-        public Init Init { get; set; }
+        public Init? Init { get; set; }
 
         [JsonProperty("movement")]
-        public Movement Movement { get; set; }
+        public Movement? Movement { get; set; }
 
         [JsonProperty("attunement")]
-        public Attunement Attunement { get; set; }
+        public Attunement? Attunement { get; set; }
 
         [JsonProperty("senses")]
-        public Senses Senses { get; set; }
+        public Senses? Senses { get; set; }
 
         [JsonProperty("spellcasting")]
-        public string Spellcasting { get; set; }
+        public string? Spellcasting { get; set; }
 
         [JsonProperty("prof")]
         public long? Prof { get; set; }
@@ -712,7 +715,7 @@ namespace FoundryWebAPI.Models
         public long? SpellLevel { get; set; }
 
         [JsonProperty("encumbrance")]
-        public Encumbrance Encumbrance { get; set; }
+        public Encumbrance? Encumbrance { get; set; }
     }
 
     public partial class Ac
@@ -721,10 +724,10 @@ namespace FoundryWebAPI.Models
         public long? Flat { get; set; }
 
         [JsonProperty("calc")]
-        public string Calc { get; set; }
+        public string? Calc { get; set; }
 
         [JsonProperty("formula")]
-        public string Formula { get; set; }
+        public string? Formula { get; set; }
 
         [JsonProperty("min")]
         public long? Min { get; set; }
@@ -748,7 +751,7 @@ namespace FoundryWebAPI.Models
         public long? Pct { get; set; }
 
         [JsonProperty("encumbered")]
-        public bool Encumbered { get; set; }
+        public bool? Encumbered { get; set; }
     }
 
     public partial class AttributesHp
@@ -760,13 +763,13 @@ namespace FoundryWebAPI.Models
         public long? Max { get; set; }
 
         [JsonProperty("temp")]
-        public object Temp { get; set; }
+        public object? Temp { get; set; }
 
         [JsonProperty("tempmax")]
-        public object Tempmax { get; set; }
+        public object? Tempmax { get; set; }
 
         [JsonProperty("formula")]
-        public string Formula { get; set; }
+        public string? Formula { get; set; }
 
         [JsonProperty("min")]
         public long? Min { get; set; }
@@ -775,7 +778,7 @@ namespace FoundryWebAPI.Models
     public partial class Init
     {
         [JsonProperty("ability")]
-        public string Ability { get; set; }
+        public string? Ability { get; set; }
 
         [JsonProperty("bonus")]
         public string? Bonus { get; set; }
@@ -793,7 +796,7 @@ namespace FoundryWebAPI.Models
         public long? Prof { get; set; }
 
         [JsonProperty("bonuses", NullValueHandling = NullValueHandling.Ignore)]
-        public InitBonuses Bonuses { get; set; }
+        public InitBonuses? Bonuses { get; set; }
 
         [JsonProperty("passive", NullValueHandling = NullValueHandling.Ignore)]
         public long? Passive { get; set; }
@@ -802,10 +805,10 @@ namespace FoundryWebAPI.Models
     public partial class InitBonuses
     {
         [JsonProperty("check")]
-        public string Check { get; set; }
+        public string? Check { get; set; }
 
         [JsonProperty("passive")]
-        public string Passive { get; set; }
+        public string? Passive { get; set; }
     }
 
     public partial class Movement
@@ -826,10 +829,10 @@ namespace FoundryWebAPI.Models
         public long? Walk { get; set; }
 
         [JsonProperty("units")]
-        public string Units { get; set; }
+        public string? Units { get; set; }
 
         [JsonProperty("hover")]
-        public bool Hover { get; set; }
+        public bool? Hover { get; set; }
     }
 
     public partial class Senses
@@ -847,58 +850,58 @@ namespace FoundryWebAPI.Models
         public long? Truesight { get; set; }
 
         [JsonProperty("units")]
-        public string Units { get; set; }
+        public string? Units { get; set; }
 
         [JsonProperty("special")]
-        public string Special { get; set; }
+        public string? Special { get; set; }
     }
 
     public partial class SystemBonuses
     {
         [JsonProperty("mwak")]
-        public Msak Mwak { get; set; }
+        public Msak? Mwak { get; set; }
 
         [JsonProperty("rwak")]
-        public Msak Rwak { get; set; }
+        public Msak? Rwak { get; set; }
 
         [JsonProperty("msak")]
-        public Msak Msak { get; set; }
+        public Msak? Msak { get; set; }
 
         [JsonProperty("rsak")]
-        public Msak Rsak { get; set; }
+        public Msak? Rsak { get; set; }
 
         [JsonProperty("abilities")]
-        public BonusesAbilities Abilities { get; set; }
+        public BonusesAbilities? Abilities { get; set; }
 
         [JsonProperty("spell")]
-        public Spell Spell { get; set; }
+        public Spell? Spell { get; set; }
     }
 
     public partial class BonusesAbilities
     {
         [JsonProperty("check")]
-        public string Check { get; set; }
+        public string? Check { get; set; }
 
         [JsonProperty("save")]
-        public string Save { get; set; }
+        public string? Save { get; set; }
 
         [JsonProperty("skill")]
-        public string Skill { get; set; }
+        public string? Skill { get; set; }
     }
 
     public partial class Msak
     {
         [JsonProperty("attack")]
-        public string Attack { get; set; }
+        public string? Attack { get; set; }
 
         [JsonProperty("damage")]
-        public string Damage { get; set; }
+        public string? Damage { get; set; }
     }
 
     public partial class Spell
     {
         [JsonProperty("dc")]
-        public string Dc { get; set; }
+        public string? Dc { get; set; }
     }
 
     public partial class Currency
@@ -922,19 +925,19 @@ namespace FoundryWebAPI.Models
     public partial class Details
     {
         [JsonProperty("biography")]
-        public Biography Biography { get; set; }
+        public Biography? Biography { get; set; }
 
         [JsonProperty("alignment")]
-        public string Alignment { get; set; }
+        public string? Alignment { get; set; }
 
         [JsonProperty("race")]
-        public object Race { get; set; }
+        public object? Race { get; set; }
 
         [JsonProperty("type")]
-        public DetailsType Type { get; set; }
+        public DetailsType? Type { get; set; }
 
         [JsonProperty("environment")]
-        public string Environment { get; set; }
+        public string? Environment { get; set; }
 
         [JsonProperty("cr")]
         public long? Cr { get; set; }
@@ -943,88 +946,88 @@ namespace FoundryWebAPI.Models
         public long? SpellLevel { get; set; }
 
         [JsonProperty("source")]
-        public string Source { get; set; }
+        public string? Source { get; set; }
 
         [JsonProperty("xp")]
-        public Xp Xp { get; set; }
+        public Xp? Xp { get; set; }
 
         [JsonProperty("class")]
-        public ClassClass Class { get; set; }
+        public ClassClass? Class { get; set; }
 
         [JsonProperty("gender")]
-        public string Gender { get; set; }
+        public string? Gender { get; set; }
 
         [JsonProperty("age")]
-        public string Age { get; set; }
+        public string? Age { get; set; }
 
         [JsonProperty("height")]
-        public string Height { get; set; }
+        public string? Height { get; set; }
 
         [JsonProperty("weight")]
-        public string Weight { get; set; }
+        public string? Weight { get; set; }
 
         [JsonProperty("eyes")]
-        public string Eyes { get; set; }
+        public string? Eyes { get; set; }
 
         [JsonProperty("skin")]
-        public string Skin { get; set; }
+        public string? Skin { get; set; }
 
         [JsonProperty("hair")]
-        public string Hair { get; set; }
+        public string? Hair { get; set; }
 
         [JsonProperty("notes1name")]
-        public string Notes1Name { get; set; }
+        public string? Notes1Name { get; set; }
 
         [JsonProperty("notes2name")]
-        public string Notes2Name { get; set; }
+        public string? Notes2Name { get; set; }
 
         [JsonProperty("notes3name")]
-        public string Notes3Name { get; set; }
+        public string? Notes3Name { get; set; }
 
         [JsonProperty("notes4name")]
-        public string Notes4Name { get; set; }
+        public string? Notes4Name { get; set; }
     }
 
     public partial class Biography
     {
         [JsonProperty("value")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         [JsonProperty("public")]
-        public string Public { get; set; }
+        public string? Public { get; set; }
     }
 
     public partial class DetailsType
     {
         [JsonProperty("value")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         [JsonProperty("subtype")]
-        public string Subtype { get; set; }
+        public string? Subtype { get; set; }
 
         [JsonProperty("swarm")]
-        public string Swarm { get; set; }
+        public string? Swarm { get; set; }
 
         [JsonProperty("custom")]
-        public string Custom { get; set; }
+        public string? Custom { get; set; }
     }
 
     public partial class Resources
     {
         [JsonProperty("legact")]
-        public Legact Legact { get; set; }
+        public Legact? Legact { get; set; }
 
         [JsonProperty("legres")]
-        public Legact Legres { get; set; }
+        public Legact? Legres { get; set; }
 
         [JsonProperty("lair")]
-        public Lair Lair { get; set; }
+        public Lair? Lair { get; set; }
     }
 
     public partial class Lair
     {
         [JsonProperty("value")]
-        public bool Value { get; set; }
+        public bool? Value { get; set; }
 
         [JsonProperty("initiative")]
         public long? Initiative { get; set; }
@@ -1042,37 +1045,37 @@ namespace FoundryWebAPI.Models
     public partial class Spells
     {
         [JsonProperty("spell1")]
-        public Pact Spell1 { get; set; }
+        public Pact? Spell1 { get; set; }
 
         [JsonProperty("spell2")]
-        public Pact Spell2 { get; set; }
+        public Pact? Spell2 { get; set; }
 
         [JsonProperty("spell3")]
-        public Pact Spell3 { get; set; }
+        public Pact? Spell3 { get; set; }
 
         [JsonProperty("spell4")]
-        public Pact Spell4 { get; set; }
+        public Pact? Spell4 { get; set; }
 
         [JsonProperty("spell5")]
-        public Pact Spell5 { get; set; }
+        public Pact? Spell5 { get; set; }
 
         [JsonProperty("spell6")]
-        public Pact Spell6 { get; set; }
+        public Pact? Spell6 { get; set; }
 
         [JsonProperty("spell7")]
-        public Pact Spell7 { get; set; }
+        public Pact? Spell7 { get; set; }
 
         [JsonProperty("spell8")]
-        public Pact Spell8 { get; set; }
+        public Pact? Spell8 { get; set; }
 
         [JsonProperty("spell9")]
-        public Pact Spell9 { get; set; }
+        public Pact? Spell9 { get; set; }
 
         [JsonProperty("pact")]
-        public Pact Pact { get; set; }
+        public Pact? Pact { get; set; }
 
         [JsonProperty("spell0")]
-        public Legact Spell0 { get; set; }
+        public Legact? Spell0 { get; set; }
     }
 
     public partial class Pact
@@ -1081,7 +1084,7 @@ namespace FoundryWebAPI.Models
         public long? Value { get; set; }
 
         [JsonProperty("override")]
-        public object Override { get; set; }
+        public object? Override { get; set; }
 
         [JsonProperty("max")]
         public long? Max { get; set; }
@@ -1093,53 +1096,53 @@ namespace FoundryWebAPI.Models
     public partial class Traits
     {
         [JsonProperty("size")]
-        public string Size { get; set; }
+        public string? Size { get; set; }
 
         [JsonProperty("di")]
-        public Di Di { get; set; }
+        public Di? Di { get; set; }
 
         [JsonProperty("dr")]
-        public Di Dr { get; set; }
+        public Di? Dr { get; set; }
 
         [JsonProperty("dv")]
-        public Di Dv { get; set; }
+        public Di? Dv { get; set; }
 
         [JsonProperty("ci")]
-        public Ci Ci { get; set; }
+        public Ci? Ci { get; set; }
 
         [JsonProperty("languages")]
-        public Ci Languages { get; set; }
+        public Ci? Languages { get; set; }
     }
 
     public partial class Ci
     {
         [JsonProperty("value")]
-        public object[] Value { get; set; }
+        public object[]? Value { get; set; }
 
         [JsonProperty("custom")]
-        public string Custom { get; set; }
+        public string? Custom { get; set; }
     }
 
     public partial class Di
     {
         [JsonProperty("value")]
-        public object[] Value { get; set; }
+        public object[]? Value { get; set; }
 
         [JsonProperty("bypasses")]
-        public object[] Bypasses { get; set; }
+        public object[]? Bypasses { get; set; }
 
         [JsonProperty("custom")]
-        public string Custom { get; set; }
+        public string? Custom { get; set; }
     }
 
     public partial class Actor
     {
-        public static Actor FromJson(string json) => JsonConvert.DeserializeObject<Actor>(json, FoundryWebAPI.Models.Converter.Settings);
+        public static Actor? FromJson(string? json) => JsonConvert.DeserializeObject<Actor>(json, FoundryWebAPI.Models.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this Actor self) => JsonConvert.SerializeObject(self, FoundryWebAPI.Models.Converter.Settings);
+        public static string? ToJson(this Actor self) => JsonConvert.SerializeObject(self, FoundryWebAPI.Models.Converter.Settings);
     }
 
     internal static class Converter

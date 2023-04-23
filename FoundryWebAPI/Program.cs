@@ -2,11 +2,18 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using FoundryWebAPI;
+using System.Reflection;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using FoundryWebAPI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddCors();
+
+builder.Services.AddScoped<IRepository, Repository>();
+
 builder.Services.AddControllers();
 var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
@@ -30,7 +37,41 @@ builder.Services.AddAuthentication(x =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddVersionedApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
+
+})
+.AddApiVersioning(options =>
+{
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.ReportApiVersions = true;
+});
+var apiProviderDescription = builder.Services.BuildServiceProvider().GetService<IApiVersionDescriptionProvider>();
+builder.Services.AddSwaggerGen(options =>
+{
+    foreach (var description in apiProviderDescription.ApiVersionDescriptions)
+    {
+        options.SwaggerDoc(description.GroupName, new Microsoft.OpenApi.Models.OpenApiInfo()
+        {
+            Title = "FoundryVTT Web API",
+            Version = description.ApiVersion.ToString(),
+            Description = "WebAPI for FoundryVTT, readOnly API.",
+            Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+            {
+                Name = "Ricardo Sobral",
+                Email = "",
+                Url = new Uri("https://github.com/ricardopiloto/foundryvtt-webapi")
+            }
+        });
+    }
+    var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+
+    options.IncludeXmlComments(xmlCommentsFullPath);
+});
 
 var app = builder.Build();
 
@@ -38,7 +79,17 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        foreach (var description in apiProviderDescription.ApiVersionDescriptions)
+        {
+            options.SwaggerEndpoint(
+                $"/swagger/{description.GroupName}/swagger.json",
+                description.GroupName.ToUpperInvariant()
+            );
+        }
+        options.RoutePrefix = "";
+    });
 }
 
 // app.UseHttpsRedirection();

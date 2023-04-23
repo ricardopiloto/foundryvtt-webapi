@@ -10,9 +10,8 @@ namespace FoundryWebAPI.Models
     {
         public Worlds () {}
 
-        [JsonProperty("name")]
-        public string? Name { get; set; }
-
-        public Worlds? World { get; set; }
+        [JsonProperty("path")]
+        public string? Path { get; set; }
+        public string? World { get; set; }
     }
 }

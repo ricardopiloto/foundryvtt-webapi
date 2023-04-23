@@ -8,15 +8,9 @@ namespace FoundryWebAPI.Models
     public class ActorsJournals
     {
         public ActorsJournals() { }
-        public ActorsJournals(string actorId, string journalId)
-        {
-            this.ActorId = actorId;
-            this.JournalId = journalId;
-
-        }
-        public string ActorId { get; set; } = string.Empty;
+        public string? ActorId { get; set; }
         public Actors? Actor { get; set; }
-        public string JournalId { get; set; } = string.Empty;
+        public string? JournalId { get; set; }
         public Journals? Journal { get; set; }
 
     }

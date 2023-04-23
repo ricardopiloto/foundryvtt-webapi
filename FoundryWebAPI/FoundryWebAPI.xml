@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FoundryWebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:FoundryWebAPI.Services.TokenService">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.Services.TokenService.GenerateToken(FoundryWebAPI.Models.User)">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="T:FoundryWebAPI.Settings">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="F:FoundryWebAPI.Settings.Secret">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="T:FoundryWebAPI.V1.Controllers.ActorsController">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="F:FoundryWebAPI.V1.Controllers.ActorsController._repo">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.Get(System.String)">
+             <summary>
+             Method to get all actors from db file
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetById(System.String,System.String)">
+             <summary>
+             Method to get actors by id from db file
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByName(System.String,System.String)">
+             <summary>
+             Method to get actors by name from db file
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByType(System.String,System.String)">
+             <summary>
+             Method to get actors by type (chacters, monsters, npc, etc) from db file
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByClass(System.String,System.String)">
+             <summary>
+             Method to get actors by Class if type is characters from db file
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="T:FoundryWebAPI.V1.Controllers.JournalController">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="F:FoundryWebAPI.V1.Controllers.JournalController._repo">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.Get(System.String)">
+             <summary>
+             Method to get all journal entries
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.GetById(System.String,System.String)">
+             <summary>
+             Method to get journal entry by id from db file
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.GetByName(System.String,System.String)">
+             <summary>
+             Method to get journal entry by name from db file
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="T:FoundryWebAPI.V1.Controllers.LoginController">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.LoginController.Authenticate(FoundryWebAPI.Models.User)">
+             <summary>
+             Login method for the API
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="T:FoundryWebAPI.V1.Controllers.WorldsController">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:FoundryWebAPI.V1.Controllers.WorldsController._repo" -->
+        <member name="M:FoundryWebAPI.V1.Controllers.WorldsController.Get">
+             <summary>
+             Method to get all available worlds
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V1.Controllers.WorldsController.GetByName(System.String)">
+             <summary>
+             Get worlds by name
+            </summary>
+             <returns></returns>
+        </member>
+    </members>
+</doc>

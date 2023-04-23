@@ -6,8 +6,16 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace FoundryWebAPI.Services
 {
+    /// <summary>
+    /// 
+    ///</summary>
+    /// <returns></returns>
     public static class TokenService
     {
+        /// <summary>
+        /// 
+        ///</summary>
+        /// <returns></returns>
         public static string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
