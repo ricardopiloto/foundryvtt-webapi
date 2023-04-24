@@ -25,12 +25,12 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/")]
         [Authorize]
-        public IActionResult Get(string world)
+        public async Task<IActionResult> Get(string world)
         {
-            var actors = _repo.Actor(world);
+            var actors = await _repo.ActorAsync(world);
             if (actors == null) return BadRequest($"No actors found for world {world}.");
 
-            return Ok(_repo.Actor(world));
+            return Ok(actors);
         }
         /// <summary>
         /// Method to get actors by id from db file
@@ -38,12 +38,13 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/id/{id}")]
         [Authorize]
-        public IActionResult GetById(string world, string id)
+        public async Task<IActionResult> GetById(string world, string id)
         {
-            var byActorId = _repo.Actor(world).FirstOrDefault(a => a.Id == id);
-            if (byActorId == null) return BadRequest("Actor not found.");
+            var byActorId = await _repo.ActorAsync(world);
+            var actorInfo = byActorId.FindAll(a => a.Id == id);
+            if (actorInfo == null) return BadRequest("Actor not found.");
 
-            return Ok(byActorId);
+            return Ok(actorInfo);
         }
 
         // /api/journal/byName?name=nomedojournal
@@ -54,12 +55,13 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/name/{name}")]
         [Authorize]
-        public IActionResult GetByName(string world, string name)
+        public async Task<IActionResult> GetByName(string world, string name)
         {
-            var byActorName = _repo.Actor(world).FindAll(a => a.Name.Contains(name));
-            if (byActorName == null) return BadRequest("Actor not found.");
+            var byActorName = await _repo.ActorAsync(world);
+            var actorInfo = byActorName.FindAll(a => a.Name.Contains(name));
+            if (actorInfo == null) return BadRequest("Actor not found.");
 
-            return Ok(byActorName);
+            return Ok(actorInfo);
         }
 
         /// <summary>
@@ -68,12 +70,13 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/type/{type}")]
         [Authorize]
-        public IActionResult GetByType(string world, string type)
+        public async Task<IActionResult> GetByType(string world, string type)
         {
-            var byActorType = _repo.Actor(world).FindAll(a => a.Type.Contains(type));
-            if (byActorType == null) return BadRequest("Actor not found.");
+            var byActorType = await _repo.ActorAsync(world);
+            var actorInfo = byActorType.FindAll(a => a.Type.Contains(type));
+            if (actorInfo == null) return BadRequest("Actor not found.");
 
-            return Ok(byActorType);
+            return Ok(actorInfo);
         }
 
         /// <summary>
@@ -82,15 +85,16 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/class/{cls}")]
         [Authorize]
-        public IActionResult GetByClass(string world, string cls)
+        public async Task<IActionResult> GetByClass(string world, string cls)
         {
             // Necessary to adjust, cannot find property Items.Type for some reason... need to check the model
-            var byActorType = _repo.Actor(world).FindAll(a => a.Type.Contains("character") 
+            var byActorType = await _repo.ActorAsync(world);
+            var actorInfo = byActorType.FindAll(a => a.Type.Contains("character") 
                                                         && a.Items.Any(i => i.Name.ToLower() == cls.ToLower())
                                                         );
-            if (byActorType == null) return BadRequest("Actor not found.");
+            if (actorInfo == null) return BadRequest("Actor not found.");
 
-            return Ok(byActorType);
+            return Ok(actorInfo);
         }
     }
 }

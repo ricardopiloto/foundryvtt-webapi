@@ -9,39 +9,47 @@ namespace FoundryWebAPI.Repositories
         public List<Actors>? Actor(string world)
         {
             var actors = ActorService.ActorFile(world);
-            if (actors != null)
-            {
-                return (JsonConvert.DeserializeObject<List<Actors>>(actors));
-            }
-            else
-            {
-                return (null);
-            }
+            var jsonObj = JsonConvert.DeserializeObject<List<Actors>>(actors);
+            
+            if (jsonObj == null) return (null);
+            
+            return (jsonObj);
+        }
+
+        public async Task<List<Actors>>? ActorAsync(string world)
+        {
+            var actors = ActorService.ActorFile(world);
+            var jsonObj = JsonConvert.DeserializeObject<List<Actors>>(actors);
+            
+            if (jsonObj == null) return (null);
+            
+            return (jsonObj);
         }
 
         public List<Journals>? Journal(string world)
         {
             var journal = JournalService.JournalFile(world);
-            if (journal != null)
-            {
-                return (JsonConvert.DeserializeObject<List<Journals>>(journal));
-            }
-            else
-            {
-                return (null);
-            };
+            var jsonObj = JsonConvert.DeserializeObject<List<Journals>>(journal);
+            if (jsonObj == null) return (null);
+            
+            return (jsonObj);
+        }
+
+        public async Task<List<Journals>>? JournalAsync(string world)
+        {
+            var journal = JournalService.JournalFile(world);
+            var jsonObj = JsonConvert.DeserializeObject<List<Journals>>(journal);
+            if (jsonObj == null) return (null);
+            
+            return (jsonObj);
         }
         public List<Worlds>? World()
         {
             var world = WorldService.GetWorlds();
-            if (world != null)
-            {
-                return (JsonConvert.DeserializeObject<List<Worlds>>(world));
-            }
-            else
-            {
-                return (null);
-            };
+            var jsonObj = JsonConvert.DeserializeObject<List<Worlds>>(world);
+            if (jsonObj == null) return (null);
+            
+            return (jsonObj);
         }
     }
 }

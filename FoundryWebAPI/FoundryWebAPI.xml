@@ -66,7 +66,7 @@
         </member>
         <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByClass(System.String,System.String)">
              <summary>
-             Method to get actors by Class if type is characters from db file
+             Method to get actors by Class IF type is characters from db file
             </summary>
              <returns></returns>
         </member>
