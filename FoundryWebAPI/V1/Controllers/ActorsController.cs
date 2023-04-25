@@ -1,3 +1,4 @@
+using FoundryWebAPI.Helpers;
 using FoundryWebAPI.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +26,9 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/")]
         [Authorize]
-        public async Task<IActionResult> Get(string world)
+        public async Task<IActionResult> Get([FromQuery]PageParams p, string world)
         {
-            var actors = await _repo.ActorAsync(world);
+            var actors = await _repo.ActorAsync(p, world);
             if (actors == null) return BadRequest($"No actors found for world {world}.");
 
             return Ok(actors);
@@ -38,9 +39,9 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/id/{id}")]
         [Authorize]
-        public async Task<IActionResult> GetById(string world, string id)
+        public async Task<IActionResult> GetById([FromQuery]PageParams p, string world, string id)
         {
-            var byActorId = await _repo.ActorAsync(world);
+            var byActorId = await _repo.ActorAsync(p, world);
             var actorInfo = byActorId.FindAll(a => a.Id == id);
             if (actorInfo == null) return BadRequest("Actor not found.");
 
@@ -55,9 +56,9 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/name/{name}")]
         [Authorize]
-        public async Task<IActionResult> GetByName(string world, string name)
+        public async Task<IActionResult> GetByName([FromQuery]PageParams p, string world, string name)
         {
-            var byActorName = await _repo.ActorAsync(world);
+            var byActorName = await _repo.ActorAsync(p, world);
             var actorInfo = byActorName.FindAll(a => a.Name.Contains(name));
             if (actorInfo == null) return BadRequest("Actor not found.");
 
@@ -70,9 +71,9 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/type/{type}")]
         [Authorize]
-        public async Task<IActionResult> GetByType(string world, string type)
+        public async Task<IActionResult> GetByType([FromQuery]PageParams p, string world, string type)
         {
-            var byActorType = await _repo.ActorAsync(world);
+            var byActorType = await _repo.ActorAsync(p, world);
             var actorInfo = byActorType.FindAll(a => a.Type.Contains(type));
             if (actorInfo == null) return BadRequest("Actor not found.");
 
@@ -85,10 +86,10 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/class/{cls}")]
         [Authorize]
-        public async Task<IActionResult> GetByClass(string world, string cls)
+        public async Task<IActionResult> GetByClass([FromQuery]PageParams p, string world, string cls)
         {
             // Necessary to adjust, cannot find property Items.Type for some reason... need to check the model
-            var byActorType = await _repo.ActorAsync(world);
+            var byActorType = await _repo.ActorAsync(p, world);
             var actorInfo = byActorType.FindAll(a => a.Type.Contains("character") 
                                                         && a.Items.Any(i => i.Name.ToLower() == cls.ToLower())
                                                         );

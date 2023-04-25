@@ -1,3 +1,4 @@
+using FoundryWebAPI.Helpers;
 using FoundryWebAPI.Models;
 using FoundryWebAPI.Services;
 using Newtonsoft.Json;
@@ -16,14 +17,15 @@ namespace FoundryWebAPI.Repositories
             return (jsonObj);
         }
 
-        public async Task<List<Actors>>? ActorAsync(string world)
+        public async Task<PageList<Actors>>? ActorAsync(PageParams p, string world)
         {
             var actors = ActorService.ActorFile(world);
             var jsonObj = JsonConvert.DeserializeObject<List<Actors>>(actors);
             
             if (jsonObj == null) return (null);
             
-            return (jsonObj);
+            // return (jsonObj);
+            return await PageList<Actors>.CreateAsync(jsonObj, p.pageNumber, p.PageSize);
         }
 
         public List<Journals>? Journal(string world)
