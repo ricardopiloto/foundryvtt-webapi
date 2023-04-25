@@ -31,6 +31,7 @@ namespace FoundryWebAPI.V1.Controllers
             var actors = await _repo.ActorAsync(p, world);
             if (actors == null) return BadRequest($"No actors found for world {world}.");
 
+            Response.AddPagination(actors.CurrenPage, actors.PageSize, actors.TotalCount, actors.TotalPages);
             return Ok(actors);
         }
         /// <summary>
@@ -45,6 +46,7 @@ namespace FoundryWebAPI.V1.Controllers
             var actorInfo = byActorId.FindAll(a => a.Id == id);
             if (actorInfo == null) return BadRequest("Actor not found.");
 
+            Response.AddPagination(byActorId.CurrenPage, byActorId.PageSize, byActorId.TotalCount, byActorId.TotalPages);
             return Ok(actorInfo);
         }
 
@@ -62,6 +64,7 @@ namespace FoundryWebAPI.V1.Controllers
             var actorInfo = byActorName.FindAll(a => a.Name.Contains(name));
             if (actorInfo == null) return BadRequest("Actor not found.");
 
+            Response.AddPagination(byActorName.CurrenPage, byActorName.PageSize, byActorName.TotalCount, byActorName.TotalPages);
             return Ok(actorInfo);
         }
 
@@ -77,6 +80,7 @@ namespace FoundryWebAPI.V1.Controllers
             var actorInfo = byActorType.FindAll(a => a.Type.Contains(type));
             if (actorInfo == null) return BadRequest("Actor not found.");
 
+            Response.AddPagination(byActorType.CurrenPage, byActorType.PageSize, byActorType.TotalCount, byActorType.TotalPages);
             return Ok(actorInfo);
         }
 
@@ -95,6 +99,7 @@ namespace FoundryWebAPI.V1.Controllers
                                                         );
             if (actorInfo == null) return BadRequest("Actor not found.");
 
+            Response.AddPagination(byActorType.CurrenPage, byActorType.PageSize, byActorType.TotalCount, byActorType.TotalPages);
             return Ok(actorInfo);
         }
     }
