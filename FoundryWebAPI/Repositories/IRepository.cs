@@ -12,7 +12,7 @@ namespace FoundryWebAPI.Repositories
         List<Actors>? Actor(string world);
         Task<PageList<Actors>>? ActorAsync(PageParams p, string world);
         List<Journals>? Journal(string world);
-        Task<List<Journals>>? JournalAsync(string world);
+        Task<List<Journals>>? JournalAsync(PageParams p, string world);
         List<Worlds>? World();
     }
 }

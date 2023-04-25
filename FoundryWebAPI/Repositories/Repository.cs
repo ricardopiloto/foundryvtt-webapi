@@ -37,13 +37,14 @@ namespace FoundryWebAPI.Repositories
             return (jsonObj);
         }
 
-        public async Task<List<Journals>>? JournalAsync(string world)
+        public async Task<List<Journals>>? JournalAsync(PageParams p, string world)
         {
             var journal = JournalService.JournalFile(world);
             var jsonObj = JsonConvert.DeserializeObject<List<Journals>>(journal);
             if (jsonObj == null) return (null);
             
-            return (jsonObj);
+            // return (jsonObj);
+            return await PageList<Journals>.CreateAsync(jsonObj, p.pageNumber, p.PageSize);
         }
         public List<Worlds>? World()
         {
