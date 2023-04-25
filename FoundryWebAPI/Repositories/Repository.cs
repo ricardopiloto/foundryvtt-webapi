@@ -1,3 +1,4 @@
+using System.Linq;
 using FoundryWebAPI.Helpers;
 using FoundryWebAPI.Models;
 using FoundryWebAPI.Services;
@@ -21,9 +22,15 @@ namespace FoundryWebAPI.Repositories
         {
             var actors = ActorService.ActorFile(world);
             var jsonObj = JsonConvert.DeserializeObject<List<Actors>>(actors);
+;
             
             if (jsonObj == null) return (null);
+            if (!string.IsNullOrEmpty(p.name)) jsonObj = jsonObj.FindAll(actor => actor.Name.ToLower().Contains(p.name.ToLower()));
+            if (!string.IsNullOrEmpty(p.id)) jsonObj = jsonObj.FindAll(actor => actor.Id == p.id);
+            if (!string.IsNullOrEmpty(p.type)) jsonObj = jsonObj.FindAll(actor => actor.Type == p.type);
             
+            // Got to adjust this one to filter both character and character class (don't know how to do it yet so I left it on the controller)
+            if (p.type.ToLower() == "character") jsonObj = (List<Actors>)jsonObj.FindAll(actor => actor.Type.Contains("character"));
             // return (jsonObj);
             return await PageList<Actors>.CreateAsync(jsonObj, p.pageNumber, p.PageSize);
         }

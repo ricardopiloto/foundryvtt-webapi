@@ -43,11 +43,11 @@ namespace FoundryWebAPI.V1.Controllers
         public async Task<IActionResult> GetById([FromQuery]PageParams p, string world, string id)
         {
             var byActorId = await _repo.ActorAsync(p, world);
-            var actorInfo = byActorId.FindAll(a => a.Id == id);
-            if (actorInfo == null) return BadRequest("Actor not found.");
+            // var actorInfo = byActorId.FindAll(a => a.Id == id);
+            if (byActorId == null) return BadRequest("Actor not found.");
 
             Response.AddPagination(byActorId.CurrenPage, byActorId.PageSize, byActorId.TotalCount, byActorId.TotalPages);
-            return Ok(actorInfo);
+            return Ok(byActorId);
         }
 
         // /api/journal/byName?name=nomedojournal
@@ -61,11 +61,11 @@ namespace FoundryWebAPI.V1.Controllers
         public async Task<IActionResult> GetByName([FromQuery]PageParams p, string world, string name)
         {
             var byActorName = await _repo.ActorAsync(p, world);
-            var actorInfo = byActorName.FindAll(a => a.Name.Contains(name));
-            if (actorInfo == null) return BadRequest("Actor not found.");
+            // var actorInfo = byActorName.FindAll(a => a.Name.Contains(name));
+            if (byActorName == null) return BadRequest("Actor not found.");
 
             Response.AddPagination(byActorName.CurrenPage, byActorName.PageSize, byActorName.TotalCount, byActorName.TotalPages);
-            return Ok(actorInfo);
+            return Ok(byActorName);
         }
 
         /// <summary>
@@ -77,11 +77,11 @@ namespace FoundryWebAPI.V1.Controllers
         public async Task<IActionResult> GetByType([FromQuery]PageParams p, string world, string type)
         {
             var byActorType = await _repo.ActorAsync(p, world);
-            var actorInfo = byActorType.FindAll(a => a.Type.Contains(type));
-            if (actorInfo == null) return BadRequest("Actor not found.");
+            // var actorInfo = byActorType.FindAll(a => a.Type.Contains(type));
+            if (byActorType == null) return BadRequest("Actor not found.");
 
             Response.AddPagination(byActorType.CurrenPage, byActorType.PageSize, byActorType.TotalCount, byActorType.TotalPages);
-            return Ok(actorInfo);
+            return Ok(byActorType);
         }
 
         /// <summary>
@@ -94,9 +94,7 @@ namespace FoundryWebAPI.V1.Controllers
         {
             // Necessary to adjust, cannot find property Items.Type for some reason... need to check the model
             var byActorType = await _repo.ActorAsync(p, world);
-            var actorInfo = byActorType.FindAll(a => a.Type.Contains("character") 
-                                                        && a.Items.Any(i => i.Name.ToLower() == cls.ToLower())
-                                                        );
+            var actorInfo = byActorType.FindAll(a => a.Items.Any(i => i.Name.ToLower() == cls.ToLower()));
             if (actorInfo == null) return BadRequest("Actor not found.");
 
             Response.AddPagination(byActorType.CurrenPage, byActorType.PageSize, byActorType.TotalCount, byActorType.TotalPages);
