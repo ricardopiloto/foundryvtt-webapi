@@ -40,31 +40,31 @@
             </summary>
              <returns></returns>
         </member>
-        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.Get(System.String)">
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.Get(FoundryWebAPI.Helpers.PageParams,System.String)">
              <summary>
              Method to get all actors from db file
             </summary>
              <returns></returns>
         </member>
-        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetById(System.String,System.String)">
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetById(FoundryWebAPI.Helpers.PageParams,System.String,System.String)">
              <summary>
              Method to get actors by id from db file
             </summary>
              <returns></returns>
         </member>
-        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByName(System.String,System.String)">
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByName(FoundryWebAPI.Helpers.PageParams,System.String,System.String)">
              <summary>
              Method to get actors by name from db file
             </summary>
              <returns></returns>
         </member>
-        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByType(System.String,System.String)">
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByType(FoundryWebAPI.Helpers.PageParams,System.String,System.String)">
              <summary>
              Method to get actors by type (chacters, monsters, npc, etc) from db file
             </summary>
              <returns></returns>
         </member>
-        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByClass(System.String,System.String)">
+        <member name="M:FoundryWebAPI.V1.Controllers.ActorsController.GetByClass(FoundryWebAPI.Helpers.PageParams,System.String,System.String)">
              <summary>
              Method to get actors by Class IF type is characters from db file
             </summary>
@@ -82,19 +82,19 @@
             </summary>
              <returns></returns>
         </member>
-        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.Get(System.String)">
+        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.Get(FoundryWebAPI.Helpers.PageParams,System.String)">
              <summary>
              Method to get all journal entries
             </summary>
              <returns></returns>
         </member>
-        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.GetById(System.String,System.String)">
+        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.GetById(FoundryWebAPI.Helpers.PageParams,System.String,System.String)">
              <summary>
              Method to get journal entry by id from db file
             </summary>
              <returns></returns>
         </member>
-        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.GetByName(System.String,System.String)">
+        <member name="M:FoundryWebAPI.V1.Controllers.JournalController.GetByName(FoundryWebAPI.Helpers.PageParams,System.String,System.String)">
              <summary>
              Method to get journal entry by name from db file
             </summary>
