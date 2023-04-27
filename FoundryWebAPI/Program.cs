@@ -5,7 +5,7 @@ using FoundryWebAPI;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using FoundryWebAPI.Repositories;
+using FoundryWebAPI.V1.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

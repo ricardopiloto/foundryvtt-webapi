@@ -1,4 +1,4 @@
-using FoundryWebAPI.Repositories;
+using FoundryWebAPI.V1.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

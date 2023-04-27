@@ -1,6 +1,6 @@
 using FoundryWebAPI.Models;
 
-namespace FoundryWebAPI.Repositories
+namespace FoundryWebAPI.V1.Repositories
 {
     public static class UserRepository
     {

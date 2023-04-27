@@ -1,5 +1,5 @@
 using FoundryWebAPI.Helpers;
-using FoundryWebAPI.Repositories;
+using FoundryWebAPI.V1.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,10 +28,10 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/")]
         [Authorize]
-        public async Task<IActionResult> Get([FromQuery]PageParams p, string world)
+        public async Task<IActionResult> Get(string world)
         {
             // var byWorld = J2(world);
-            var journal = await _repo.JournalAsync(p, world);
+            var journal = await _repo.JournalAsync(world, null, null);
             if (journal == null) return BadRequest($"No journals found for world {world}");
 
             return Ok(journal);
@@ -43,13 +43,13 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/id/{id}")]
         [Authorize]
-        public async Task<IActionResult> GetById([FromQuery]PageParams p, string world, string id)
+        public async Task<IActionResult> GetById([FromQuery] PageParams p, string world, string id)
         {
-            var byJournalId = await _repo.JournalAsync(p, world);
-            var journalInfo = byJournalId.FindAll(j => j.Id == id);
-            if (journalInfo.Count <= 0) return BadRequest("Journal not found.");
+            var byJournalId = await _repo.JournalAsync(world, id, "byId");
+            // var journalInfo = byJournalId.FindAll(j => j.Id == id);
+            if (byJournalId == null) return BadRequest("Journal not found.");
 
-            return Ok(journalInfo);
+            return Ok(byJournalId);
         }
 
         /// <summary>
@@ -58,13 +58,13 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/name/{name}")]
         [Authorize]
-        public async Task<IActionResult> GetByName([FromQuery]PageParams p, string world, string name)
+        public async Task<IActionResult> GetByName(string world, string name)
         {
-            var byJournalName = await _repo.JournalAsync(p, world);
-            var journalInfo = byJournalName.FindAll(j => j.Name.Contains(name));
-            if (journalInfo == null) return BadRequest("Journal not found.");
+            var byJournalName = await _repo.JournalAsync(world, name, "byName");
+            // var journalInfo = byJournalName.FindAll(j => j.Name.Contains(name));
+            if (byJournalName == null) return BadRequest("Journal not found.");
 
-            return Ok(journalInfo);
+            return Ok(byJournalName);
         }
     }
 }

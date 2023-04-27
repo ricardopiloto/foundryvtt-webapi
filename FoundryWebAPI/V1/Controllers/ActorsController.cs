@@ -1,5 +1,4 @@
-using FoundryWebAPI.Helpers;
-using FoundryWebAPI.Repositories;
+using FoundryWebAPI.V1.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,12 +25,11 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/")]
         [Authorize]
-        public async Task<IActionResult> Get([FromQuery]PageParams p, string world)
+        public async Task<IActionResult> Get(string world)
         {
-            var actors = await _repo.ActorAsync(p, world);
+            var actors = await _repo.ActorAsync(world, null, null);
             if (actors == null) return BadRequest($"No actors found for world {world}.");
 
-            Response.AddPagination(actors.CurrenPage, actors.PageSize, actors.TotalCount, actors.TotalPages);
             return Ok(actors);
         }
         /// <summary>
@@ -40,13 +38,12 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/id/{id}")]
         [Authorize]
-        public async Task<IActionResult> GetById([FromQuery]PageParams p, string world, string id)
+        public async Task<IActionResult> GetById(string world, string id)
         {
-            var byActorId = await _repo.ActorAsync(p, world);
+            var byActorId = await _repo.ActorAsync(world, id, "byId");
             // var actorInfo = byActorId.FindAll(a => a.Id == id);
             if (byActorId == null) return BadRequest("Actor not found.");
-
-            Response.AddPagination(byActorId.CurrenPage, byActorId.PageSize, byActorId.TotalCount, byActorId.TotalPages);
+        
             return Ok(byActorId);
         }
 
@@ -58,13 +55,12 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/name/{name}")]
         [Authorize]
-        public async Task<IActionResult> GetByName([FromQuery]PageParams p, string world, string name)
+        public async Task<IActionResult> GetByName(string world, string name)
         {
-            var byActorName = await _repo.ActorAsync(p, world);
+            var byActorName = await _repo.ActorAsync(world, name, "byName");
             // var actorInfo = byActorName.FindAll(a => a.Name.Contains(name));
             if (byActorName == null) return BadRequest("Actor not found.");
 
-            Response.AddPagination(byActorName.CurrenPage, byActorName.PageSize, byActorName.TotalCount, byActorName.TotalPages);
             return Ok(byActorName);
         }
 
@@ -74,13 +70,12 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/type/{type}")]
         [Authorize]
-        public async Task<IActionResult> GetByType([FromQuery]PageParams p, string world, string type)
+        public async Task<IActionResult> GetByType(string world, string type)
         {
-            var byActorType = await _repo.ActorAsync(p, world);
+            var byActorType = await _repo.ActorAsync(world, type, "byType");
             // var actorInfo = byActorType.FindAll(a => a.Type.Contains(type));
             if (byActorType == null) return BadRequest("Actor not found.");
 
-            Response.AddPagination(byActorType.CurrenPage, byActorType.PageSize, byActorType.TotalCount, byActorType.TotalPages);
             return Ok(byActorType);
         }
 
@@ -90,15 +85,13 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/class/{cls}")]
         [Authorize]
-        public async Task<IActionResult> GetByClass([FromQuery]PageParams p, string world, string cls)
+        public async Task<IActionResult> GetByClass(string world, string cls)
         {
-            // Necessary to adjust, cannot find property Items.Type for some reason... need to check the model
-            var byActorType = await _repo.ActorAsync(p, world);
-            var actorInfo = byActorType.FindAll(a => a.Items.Any(i => i.Name.ToLower() == cls.ToLower()));
-            if (actorInfo == null) return BadRequest("Actor not found.");
+            var byActorType = await _repo.ActorAsync(world, cls, "byClass");
+            // var actorInfo = byActorType.FindAll(a => a.Items.Any(i => i.Name.ToLower() == cls.ToLower()));
+            if (byActorType == null) return BadRequest("Actor not found.");
 
-            Response.AddPagination(byActorType.CurrenPage, byActorType.PageSize, byActorType.TotalCount, byActorType.TotalPages);
-            return Ok(actorInfo);
+            return Ok(byActorType);
         }
     }
 }
