@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FoundryWebAPI.Helpers;
 using FoundryWebAPI.Models;
 
 namespace FoundryWebAPI.Repositories
@@ -12,10 +13,7 @@ namespace FoundryWebAPI.Repositories
         {
             try
             {
-                // string filepath = $"/mnt/worlds/{world}/data/actors.db";
-                string filepath = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/{world}/data/actors.db";
-                // test with localfile
-                
+                string filepath = $"{FileLocation.Location(world)}{world}/actors.db";
                 // adjust the string (file) to properly read it as a json
                 if (File.Exists(filepath))
                 {

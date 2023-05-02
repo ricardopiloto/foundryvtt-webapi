@@ -1,3 +1,4 @@
+using FoundryWebAPI.Helpers;
 using FoundryWebAPI.Models;
 using Newtonsoft.Json;
 
@@ -9,9 +10,7 @@ namespace FoundryWebAPI.Services
         {
             try
             {
-                string filepath = $"/mnt/worlds/{world}/data/journal.db";
-                // string filepath = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/{world}/data/journal.db";
-                // test with localfile
+                string filepath = $"{FileLocation.Location(world)}{world}/journal.db";
     
                 // adjust the string (file) to properly read it as a json
                 if (File.Exists(filepath))

@@ -1,4 +1,5 @@
 
+using FoundryWebAPI.Helpers;
 using FoundryWebAPI.Models;
 using Newtonsoft.Json;
 
@@ -10,8 +11,7 @@ namespace FoundryWebAPI.Services
         {
             try
             {
-                // string path = $"/mnt/worlds";
-                string path = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/";
+                string path = $"{FileLocation.Location(null)}";
                 var list = new List<Worlds>();
     
                 foreach (var directory in Directory.GetDirectories(path))
