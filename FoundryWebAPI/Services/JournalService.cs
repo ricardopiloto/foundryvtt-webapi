@@ -10,13 +10,12 @@ namespace FoundryWebAPI.Services
         {
             try
             {
-                string filepath = $"{FileLocation.Location(world)}{world}/journal.db";
+                string filepath = $"{GetFileInfo.Location(world)}{world}/journal.db";
     
                 // adjust the string (file) to properly read it as a json
                 if (File.Exists(filepath))
                 {
-                    var rawText = "[" + File.ReadAllText(@filepath).Replace("}\n{", "}\n,{") + "]";
-                    return (rawText);
+                    return (GetFileInfo.AdjustFileToJson(filepath));
                 }
                 else
                 {
