@@ -8,22 +8,29 @@ namespace FoundryWebAPI.Services
     {
         public static string GetWorlds()
         {
-            // string path = "/home/ubuntu/.local/share/FoundryVTT/Data/worlds/";
-            string path = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/";
-            var list = new List<Worlds>();
-            // string path = "/home/ricardosobral/Documents/";
-
-            foreach (var directory in Directory.GetDirectories(path))
+            try
             {
-                string dirName = new DirectoryInfo(directory).Name;
-                list.Add(new Worlds()
+                // string path = $"/mnt/worlds";
+                string path = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/";
+                var list = new List<Worlds>();
+    
+                foreach (var directory in Directory.GetDirectories(path))
                 {
-                    Path = directory,
-                    World = dirName
-                });
+                    string dirName = new DirectoryInfo(directory).Name;
+                    list.Add(new Worlds()
+                    {
+                        Path = directory,
+                        World = dirName
+                    });
+                }
+                var json = JsonConvert.SerializeObject(list);
+                return (json);
             }
-            var json = JsonConvert.SerializeObject(list);
-            return (json);
+            catch (System.Exception e)
+            {
+                
+                return (e.ToString());
+            }
         }
     }
 }
