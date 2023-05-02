@@ -11,7 +11,7 @@ namespace FoundryWebAPI.Services
         {
             try
             {
-                string path = $"{FileLocation.Location(null)}";
+                string path = $"{GetFileInfo.Location(null)}";
                 var list = new List<Worlds>();
     
                 foreach (var directory in Directory.GetDirectories(path))
