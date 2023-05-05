@@ -1,4 +1,5 @@
 using FoundryWebAPI.Helpers;
+using FoundryWebAPI.Models;
 using FoundryWebAPI.V1.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Actors))]
         public async Task<IActionResult> Get([FromQuery]PageParams p,string world)
         {
             var actors = await _repo.ActorAsync(p, world, null, null);
@@ -39,6 +41,8 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/id/{id}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Actors))]
+        
         public async Task<IActionResult> GetById([FromQuery]PageParams p,string world, string id)
         {
             var byActorId = await _repo.ActorAsync(p, world, id, "byId");
@@ -56,6 +60,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/name/{name}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Actors))]
         public async Task<IActionResult> GetByName([FromQuery]PageParams p, string world, string name)
         {
             var byActorName = await _repo.ActorAsync(p, world, name, "byName");
@@ -86,6 +91,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/class/{cls}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Actors))]
         public async Task<IActionResult> GetByClass([FromQuery]PageParams p,string world, string cls)
         {
             var byActorType = await _repo.ActorAsync(p,world, cls, "byClass");

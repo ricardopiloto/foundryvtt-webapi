@@ -120,10 +120,10 @@
         </member>
         <!-- Badly formed XML comment ignored for member "F:FoundryWebAPI.V1.Controllers.WorldsController._repo" -->
         <member name="M:FoundryWebAPI.V1.Controllers.WorldsController.Get">
-             <summary>
-             Method to get all available worlds
+            <summary>
+            Method to get all available worlds
             </summary>
-             <returns></returns>
+            <returns></returns>
         </member>
         <member name="M:FoundryWebAPI.V1.Controllers.WorldsController.GetByName(System.String)">
              <summary>

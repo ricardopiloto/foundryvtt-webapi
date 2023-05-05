@@ -12,15 +12,25 @@ namespace FoundryWebAPI.Services
             try
             {
                 string path = $"{GetFileInfo.Location(null)}";
-                var list = new List<Worlds>();
+                var list = new List<WorldsModel>();
     
                 foreach (var directory in Directory.GetDirectories(path))
                 {
                     string dirName = new DirectoryInfo(directory).Name;
-                    list.Add(new Worlds()
+                    string worldFile = $"{path}{dirName}/world.json";
+                    var jsonObj = JsonConvert.DeserializeObject<WorldsModel>(File.ReadAllText(worldFile));
+                    list.Add(new WorldsModel()
                     {
-                        Path = directory,
-                        World = dirName
+                        Id = jsonObj.Id,
+                        Title = jsonObj.Title,
+                        Background = jsonObj.Background,
+                        Description = jsonObj.Description,
+                        System = jsonObj.System,
+                        Version = jsonObj.Version,
+                        CoreVersion = jsonObj.CoreVersion,
+                        ResetKeys = jsonObj.ResetKeys,
+                        SafeMode = jsonObj.SafeMode,
+                        SystemVersion = jsonObj.SystemVersion
                     });
                 }
                 var json = JsonConvert.SerializeObject(list);

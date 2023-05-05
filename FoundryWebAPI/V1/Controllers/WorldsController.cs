@@ -1,3 +1,4 @@
+using FoundryWebAPI.Models;
 using FoundryWebAPI.V1.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,15 +24,16 @@ namespace FoundryWebAPI.V1.Controllers
         // /api/worlds
         /// <summary>
         /// Method to get all available worlds
-        ///</summary>
+        /// </summary>
         /// <returns></returns>
         [HttpGet]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(WorldsModel))]
         public IActionResult Get()
         {
             var worlds = _repo.World();
             if (worlds == null) return BadRequest("No worlds found.");
-            return Ok(_repo.World());
+            return Ok(worlds);
         }
 
         // /api/worlds/byName?name=nameo
@@ -41,9 +43,10 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{name}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(WorldsModel))]
         public IActionResult GetByName(string name)
         {
-            var byWorldName = _repo.World().FirstOrDefault(w => w.Path.Contains(name));
+            var byWorldName = _repo.World().FirstOrDefault(w => w.Title.Contains(name));
             if (byWorldName == null) return BadRequest("World not found");
             return Ok(byWorldName);
         }
