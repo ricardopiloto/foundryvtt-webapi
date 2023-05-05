@@ -10,5 +10,6 @@ namespace FoundryWebAPI.V1.Repositories
         List<Journals>? Journal(string world);
         Task<List<Journals>>? JournalAsync(string world, string x, string call);
         List<Worlds>? World();
+        // Task<List<Worlds>>? WorldAsync();
     }
 }

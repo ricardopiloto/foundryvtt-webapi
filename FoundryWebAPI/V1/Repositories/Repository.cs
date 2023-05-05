@@ -60,5 +60,15 @@ namespace FoundryWebAPI.V1.Repositories
 
             return (null);
         }
+
+        // public Task<List<Worlds>>? WorldAsync()
+        // {
+        //     var world = WorldService.GetWorlds();
+        //     var jsonObj = JsonConvert.DeserializeObject<List<Worlds>>(world);
+
+        //     if (jsonObj.Count > 0) return (jsonObj);
+
+        //     return (null);
+        // }
     }
 }

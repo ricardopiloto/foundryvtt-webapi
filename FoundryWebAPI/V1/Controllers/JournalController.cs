@@ -1,4 +1,5 @@
 using FoundryWebAPI.Helpers;
+using FoundryWebAPI.Models;
 using FoundryWebAPI.V1.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Journals))]
         public async Task<IActionResult> Get(string world)
         {
             // var byWorld = J2(world);
@@ -43,6 +45,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/id/{id}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Journals))]
         public async Task<IActionResult> GetById([FromQuery] PageParams p, string world, string id)
         {
             var byJournalId = await _repo.JournalAsync(world, id, "byId");
@@ -58,6 +61,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{world}/name/{name}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Journals))]
         public async Task<IActionResult> GetByName(string world, string name)
         {
             var byJournalName = await _repo.JournalAsync(world, name, "byName");
