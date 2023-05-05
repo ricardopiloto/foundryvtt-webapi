@@ -51,10 +51,10 @@ namespace FoundryWebAPI.V1.Repositories
 
             return (jsonObj);
         }
-        public List<Worlds>? World()
+        public List<WorldsModel>? World()
         {
             var world = WorldService.GetWorlds();
-            var jsonObj = JsonConvert.DeserializeObject<List<Worlds>>(world);
+            var jsonObj = JsonConvert.DeserializeObject<List<WorldsModel>>(world);
 
             if (jsonObj.Count > 0) return (jsonObj);
 

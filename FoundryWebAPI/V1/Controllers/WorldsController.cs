@@ -28,7 +28,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet]
         [Authorize]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Worlds))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(WorldsModel))]
         public IActionResult Get()
         {
             var worlds = _repo.World();
@@ -43,10 +43,10 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{name}")]
         [Authorize]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Worlds))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(WorldsModel))]
         public IActionResult GetByName(string name)
         {
-            var byWorldName = _repo.World().FirstOrDefault(w => w.Path.Contains(name));
+            var byWorldName = _repo.World().FirstOrDefault(w => w.Title.Contains(name));
             if (byWorldName == null) return BadRequest("World not found");
             return Ok(byWorldName);
         }
