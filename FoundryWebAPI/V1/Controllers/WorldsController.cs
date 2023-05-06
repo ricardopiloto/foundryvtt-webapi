@@ -28,6 +28,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet]
         [Authorize]
+        [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(WorldsModel))]
         public IActionResult Get()
         {
@@ -43,6 +44,7 @@ namespace FoundryWebAPI.V1.Controllers
         /// <returns></returns>
         [HttpGet("{name}")]
         [Authorize]
+        [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(WorldsModel))]
         public IActionResult GetByName(string name)
         {
