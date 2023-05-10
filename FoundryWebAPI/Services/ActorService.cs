@@ -13,7 +13,7 @@ namespace FoundryWebAPI.Repositories
         {
             try
             {
-                string filepath = $"{GetFileInfo.Location(world)}{world}/actors.db";
+                string filepath = $"{GetFileInfo.Location(world)}actors.db";
                 // adjust the string (file) to properly read it as a json
                 if (File.Exists(filepath))
                 {

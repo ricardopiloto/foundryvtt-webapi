@@ -10,7 +10,7 @@ namespace FoundryWebAPI.Services
         {
             try
             {
-                string filepath = $"{GetFileInfo.Location(world)}{world}/journal.db";
+                string filepath = $"{GetFileInfo.Location(world)}journal.db";
     
                 // adjust the string (file) to properly read it as a json
                 if (File.Exists(filepath))
