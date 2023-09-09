@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using FoundryWebAPI.Repositories;
 using FoundryWebAPI.Helpers;
 
-namespace FoundryWebAPI.V1.Repositories
+namespace FoundryWebAPI.Repositories
 {
     public class Repository : IRepository
     {

@@ -131,5 +131,23 @@
             </summary>
              <returns></returns>
         </member>
+        <member name="T:FoundryWebAPI.V2.Controllers.ActorsController">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="F:FoundryWebAPI.V2.Controllers.ActorsController._repo">
+             <summary>
+             
+            </summary>
+             <returns></returns>
+        </member>
+        <member name="M:FoundryWebAPI.V2.Controllers.ActorsController.Get(FoundryWebAPI.Helpers.PageParams,System.String)">
+             <summary>
+             Method to get all actors from db file
+            </summary>
+             <returns></returns>
+        </member>
     </members>
 </doc>

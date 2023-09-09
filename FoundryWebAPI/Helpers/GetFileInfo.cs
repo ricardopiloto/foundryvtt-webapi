@@ -11,16 +11,16 @@ namespace FoundryWebAPI.Helpers
         {
             if (!String.IsNullOrEmpty(world))
             {
-                string filepath = $"/mnt/worlds/{world}/data/";
+                // string filepath = $"/mnt/worlds/{world}/data/";
                 // Testing with localfile
-                // string filepath = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/{world}/data/";
+                string filepath = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/{world}/data/";
                 return (filepath);
             }
             else
             {
-                string path = $"/mnt/worlds/";
+                // string path = $"/mnt/worlds/";
                 // Testing with localfile
-                // string path = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/";
+                string path = $"/home/ricardosobral/Data_Jiban/FoundryVTT-Code/Mock_server/";
                 return (path);
             }
         }

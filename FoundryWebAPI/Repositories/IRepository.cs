@@ -1,7 +1,7 @@
 using FoundryWebAPI.Helpers;
 using FoundryWebAPI.Models;
 
-namespace FoundryWebAPI.V1.Repositories
+namespace FoundryWebAPI.Repositories
 {
     public interface IRepository
     {

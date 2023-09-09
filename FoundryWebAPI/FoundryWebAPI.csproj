@@ -16,5 +16,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16"/>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0"/>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0"/>
+    <PackageReference Include="LevelDB.Standard" Version="2.1.6.1"/>
   </ItemGroup>
 </Project>

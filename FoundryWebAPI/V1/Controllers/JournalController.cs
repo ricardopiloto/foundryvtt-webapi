@@ -1,6 +1,6 @@
 using FoundryWebAPI.Helpers;
 using FoundryWebAPI.Models;
-using FoundryWebAPI.V1.Repositories;
+using FoundryWebAPI.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
